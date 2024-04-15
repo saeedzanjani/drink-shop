@@ -1,0 +1,42 @@
+.header {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  box-sizing: border-box;
+
+  &-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &-logo {
+    width: 50px;
+    height: 50px;
+    margin: 10px 20px;
+
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &-title {
+    margin: 0;
+    user-select: none;
+  }
+
+  &-back {
+    width: 80px;
+    height: 50px;
+    cursor: pointer;
+
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
