@@ -1,1 +1,10 @@
-<p>drink-item works!</p>
+<a [routerLink]="['/drink', drink.idDrink]" class="drink">
+  <mat-card class="drink-card">
+    <div class="drink-card-image-container">
+      <img class="drink-card-image" [src]="drink.strDrinkThumb" alt="{{ drink.strDrink }}">
+    </div>
+    <mat-card-content>
+      <h2 class="drink-card-title">{{ drink.strDrink }}</h2>
+    </mat-card-content>
+  </mat-card>
+</a>

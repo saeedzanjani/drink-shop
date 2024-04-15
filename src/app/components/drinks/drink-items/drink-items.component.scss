@@ -1,0 +1,13 @@
+.drink-list-container {
+  height: 100dvh;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.drink-item {
+  height: auto;
+}
+
+.cdk-virtual-scroll-content-wrapper {
+  display: flex !important;
+}

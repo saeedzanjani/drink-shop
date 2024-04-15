@@ -1,1 +1,5 @@
-<p>drink-items works!</p>
+<cdk-virtual-scroll-viewport itemSize="50" class="drink-list-container">
+  <div *ngFor="let drink of drinks | async">
+    <app-drink-item [drink]="drink" class="drink-item"></app-drink-item>
+  </div>
+</cdk-virtual-scroll-viewport>

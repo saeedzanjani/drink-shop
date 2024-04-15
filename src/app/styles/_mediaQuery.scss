@@ -1,0 +1,20 @@
+@import "width";
+
+@mixin mobile {
+  @media (min-width: 0) and (max-width: #{$width__mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  //@media (min-width: #{$width__mobile}) and (max-width: #{$width__tablet - 1px}) {
+  @media (max-width: #{$width__tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$width__desktop}) {
+    @content;
+  }
+}

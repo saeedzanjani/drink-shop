@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {Observable} from "rxjs";
+import {IDrink} from "../../../models/drink.model";
 
 @Component({
   selector: 'app-drink-items',
@@ -6,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./drink-items.component.scss']
 })
 export class DrinkItemsComponent {
+
+  @Input() drinks!: Observable<IDrink[]>;
 
 }

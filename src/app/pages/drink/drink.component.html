@@ -1,1 +1,31 @@
-<p>drink works!</p>
+<div *ngIf="(drinkDetails$ | async) as drink" class="drink-details">
+  <div class="drink-details-image-container">
+    <img mat-card-xl-image [src]="drink.strDrinkThumb" alt="{{ drink.strDrink }}" class="drink-details-image">
+  </div>
+  <div class="drink-details-info-container">
+    <div class="drink-details-info">
+      <h2>{{ drink.strDrink }}</h2>
+      <h4>{{ drink.strCategory }}</h4>
+      <div class="drink-details-info-instructions">
+        <h2>Instructions</h2>
+
+        <mat-form-field>
+          <mat-label>Select Language</mat-label>
+          <mat-select [(ngModel)]="selectedLanguage" (ngModelChange)="onLanguageChange(drink)">
+            <mat-option *ngFor="let lang of availableLanguages" [value]="lang">
+              {{ lang }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <p>{{ selectedLanguage === 'en' ? drink?.strInstructions : instructions }}</p>
+      </div>
+    </div>
+    <div class="drink-details-ingredients">
+      <h2>Ingredients</h2>
+      <div *ngFor="let ingredient of ingredients" class="drink-details-ingredients-list">
+        <span matListItemTitle>{{ ingredient }}</span>
+      </div>
+    </div>
+  </div>
+</div>

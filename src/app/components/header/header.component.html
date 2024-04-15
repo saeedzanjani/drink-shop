@@ -1,11 +1,14 @@
-<header class="header">
+<header class="header"
+        [appCheckRoute]="'/home'">
   <div class="header-container">
     <div class="header-logo">
       <img [src]="brand['logoUrl']" alt="App Logo">
     </div>
     <h2 class="header-title">{{ brand['appName'] }}</h2>
   </div>
-  <div class="header-back" *ngIf="currentRoute !== 'home'" (click)="goBack()">
-    <img [src]="backIconUrl" alt="App Logo">
-  </div>
+  <ng-container *ngIf="checkRouteDirective && !checkRouteDirective.checkRoute">
+    <div class="header-back" (click)="goBack()">
+      <img [src]="backIconUrl" alt="App Logo">
+    </div>
+  </ng-container>
 </header>

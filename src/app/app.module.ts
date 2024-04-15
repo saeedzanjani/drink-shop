@@ -9,7 +9,7 @@ import { DrinkItemComponent } from './components/drinks/drink-item/drink-item.co
 import { HomeComponent } from './pages/home/home.component';
 import { DrinkComponent } from './pages/drink/drink.component';
 import { HeaderComponent } from './components/header/header.component';
-import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {MainInterceptor} from "./interceptors/main.interceptor";
 import {ConfigService} from "./services/config.service";
 import {MatButtonModule} from "@angular/material/button";
@@ -19,6 +19,7 @@ import {MatCardModule} from "@angular/material/card";
 import {MatSelectModule} from "@angular/material/select";
 import {FormsModule} from "@angular/forms";
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import { CheckRouteDirective } from './directives/check-route.directive';
 
 @NgModule({
   declarations: [
@@ -28,12 +29,14 @@ import { MainLayoutComponent } from './layouts/main-layout/main-layout.component
     HomeComponent,
     DrinkComponent,
     HeaderComponent,
-    MainLayoutComponent
+    MainLayoutComponent,
+    CheckRouteDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatButtonModule,
     MatCardModule,
     MatGridListModule,

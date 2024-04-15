@@ -1,14 +1,16 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, OnInit, ViewChild} from '@angular/core';
 import {ConfigService} from "../../services/config.service";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {filter} from "rxjs";
 import {Location} from '@angular/common';
 import {IConfiguration} from "../../models/configuration.model";
+import {CheckRouteDirective} from "../../directives/check-route.directive";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class HeaderComponent implements OnInit {
   brand!: IConfiguration;
@@ -18,6 +20,8 @@ export class HeaderComponent implements OnInit {
   private router = inject(Router)
   private activatedRoute = inject(ActivatedRoute)
   private location = inject(Location)
+
+  @ViewChild(CheckRouteDirective, { static: true }) checkRouteDirective!: CheckRouteDirective;
 
   ngOnInit(): void {
     this.brand = this.configService.getBrandingConfig();

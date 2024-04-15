@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {IDrink} from "../../../models/drink.model";
 
 @Component({
   selector: 'app-drink-item',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./drink-item.component.scss']
 })
 export class DrinkItemComponent {
+
+  @Input() drink!: IDrink;
 
 }
