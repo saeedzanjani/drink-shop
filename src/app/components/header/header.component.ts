@@ -1,4 +1,11 @@
-import {ChangeDetectionStrategy, Component, inject, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+  ViewChild,
+  ViewEncapsulation
+} from '@angular/core';
 import {ConfigService} from "../../services/config.service";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {filter} from "rxjs";
@@ -16,7 +23,7 @@ import {CheckRouteDirective} from "../../directives/check-route.directive";
 export class HeaderComponent implements OnInit {
   brand!: IConfiguration;
   logoUrl!: string;
-  backIconUrl: string = '../../../assets/icons/back.svg';
+  backIconUrl: string = "assets/icons/back.svg";
   currentRoute: string = '';
   private configService = inject(ConfigService);
   private router = inject(Router)
@@ -27,7 +34,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.brand = this.configService.getBrandingConfig();
-    this.logoUrl = '../../../' + this.brand.logoUrl;
+    this.logoUrl = this.brand.logoUrl;
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: any) => {
