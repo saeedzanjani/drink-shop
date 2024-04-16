@@ -2,6 +2,6 @@
   "baseUrl": "https://www.thecocktaildb.com/api/json/v1/1",
   "brand": {
     "appName": "Drink Shop",
-    "logoUrl": "../../../assets/icons/logo.svg"
+    "logoUrl": "assets/icons/logo.svg"
   }
 }

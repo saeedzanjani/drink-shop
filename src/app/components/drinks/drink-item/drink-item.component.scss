@@ -7,7 +7,7 @@
     max-width: 300px;
     width: 100%;
     height: 400px;
-    height: 100%;
+    height: $h-full;
 
     @include tablet {
       max-width: 500px;
@@ -23,14 +23,14 @@
     }
 
     &-image {
-      width: 100%;
+      width: $w-full;
       object-fit: cover;
       padding: 15px;
       box-sizing: border-box;
       border-radius: 20px;
 
       &-container {
-        width: 100%;
+        width: $w-full;
         height: auto;
       }
     }

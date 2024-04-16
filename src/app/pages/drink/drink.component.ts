@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {Observable, Subscription} from "rxjs";
 import {IDrinkDetails} from "../../models/drink.model";
 import {ActivatedRoute} from "@angular/router";
@@ -8,9 +8,10 @@ import {getAvailableLanguages, getIngredients} from "../../utils/drink";
 @Component({
   selector: 'app-drink',
   templateUrl: './drink.component.html',
-  styleUrls: ['./drink.component.scss']
+  styleUrls: ['./drink.component.scss'],
+  encapsulation: ViewEncapsulation.Emulated
 })
-export class DrinkComponent {
+export class DrinkComponent implements OnInit, OnDestroy {
   drinkDetails$!: Observable<IDrinkDetails | null>;
   private drinkDetailsSubscription$!: Subscription;
   availableLanguages: string[] = [];

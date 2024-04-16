@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, inject, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {ConfigService} from "../../services/config.service";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {filter} from "rxjs";
@@ -10,10 +10,12 @@ import {CheckRouteDirective} from "../../directives/check-route.directive";
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class HeaderComponent implements OnInit {
   brand!: IConfiguration;
+  logoUrl!: string;
   backIconUrl: string = '../../../assets/icons/back.svg';
   currentRoute: string = '';
   private configService = inject(ConfigService);
@@ -21,10 +23,11 @@ export class HeaderComponent implements OnInit {
   private activatedRoute = inject(ActivatedRoute)
   private location = inject(Location)
 
-  @ViewChild(CheckRouteDirective, { static: true }) checkRouteDirective!: CheckRouteDirective;
+  @ViewChild(CheckRouteDirective, {static: true}) checkRouteDirective!: CheckRouteDirective;
 
   ngOnInit(): void {
     this.brand = this.configService.getBrandingConfig();
+    this.logoUrl = '../../../' + this.brand.logoUrl;
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: any) => {
