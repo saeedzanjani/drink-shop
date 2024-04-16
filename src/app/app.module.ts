@@ -46,7 +46,6 @@ import {CheckRouteDirective} from './directives/check-route.directive';
     FormsModule
   ],
   providers: [
-    ConfigService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: MainInterceptor,
