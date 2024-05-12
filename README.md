@@ -52,7 +52,7 @@ Some ideas for future enhancements:
 - Accessibility improvements
 - Animations
 
-The app is published at https://eliq-drinks.web.app
+The app is published at https://saeedzanjani.github.io/drink-shop/
 
 Let me know if any part needs more explanation or if you have additional questions!
 
